@@ -101,6 +101,10 @@ const AdminGuesser = ({
   const [, setError] = useState();
   const [addedCustomRoutes, setAddedCustomRoutes] = useState([]);
 
+  if (!history) {
+    history = typeof window === 'undefined' ? {} : createHashHistory();
+  }
+
   if (appLayout && process.env.NODE_ENV !== 'production') {
     console.warn(
       'You are using deprecated prop "appLayout", it was replaced by "layout", see https://github.com/marmelab/react-admin/issues/2918',
