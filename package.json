@@ -10,7 +10,7 @@
   ],
   "bundleDependencies": false,
   "main": "lib/index",
-  "repository": "api-platform/admin",
+  "repository": "git+https://git@github.com/pawelsmolenski/admin.git",
   "homepage": "https://github.com/api-platform/admin",
   "bugs": "https://github.com/api-platform/admin/issues",
   "author": "Kévin Dunglas",
