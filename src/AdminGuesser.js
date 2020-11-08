@@ -60,7 +60,6 @@ export const AdminResourcesGuesser = ({
   return <AdminUI {...rest}>{resourceChildren}</AdminUI>;
 };
 
-const defaultHistory = createHashHistory();
 const defaultTheme = createMuiTheme({
   palette: {
     primary: {
@@ -80,7 +79,7 @@ const AdminGuesser = ({
   dataProvider,
   authProvider,
   i18nProvider,
-  history = defaultHistory,
+  history,
   customReducers = {},
   customSagas,
   initialState,
@@ -116,6 +115,10 @@ const AdminGuesser = ({
     console.warn(
       'You are using deprecated prop "locale". You must now pass the initial locale to your i18nProvider',
     );
+  }
+
+  if (!history) {
+    history = typeof window === 'undefined' ? {} : createHashHistory();
   }
 
   useEffect(() => {
